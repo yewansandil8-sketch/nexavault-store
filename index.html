@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b12">
+<title>NexaVault | Digital Store</title>
+<meta name="description" content="Discover digital products, creative resources and digital services at NexaVault.">
+
+<style>
+:root {
+  --bg:#090b12;
+  --panel:#111522;
+  --panel2:#171d2d;
+  --text:#f4f5ff;
+  --muted:#9ba4bd;
+  --accent:#a78bfa;
+  --cyan:#67e8f9;
+  --line:#252d40;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+a { color:inherit; text-decoration:none; }
+button,input { font:inherit; }
+.wrap { width:min(1100px,92%); margin:auto; }
+
+header {
+  border-bottom:1px solid var(--line);
+  background:#090b12ed;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+.nav {
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.logo {
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+.logo span { color:var(--accent); }
+.navlinks {
+  display:flex;
+  gap:20px;
+  color:var(--muted);
+  font-size:14px;
+}
+.navlinks a:hover { color:white; }
+
+.btn {
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 16px;
+  font-weight:700;
+  cursor:pointer;
+  background:var(--panel2);
+  color:var(--text);
+}
+.btn.primary {
+  background:var(--accent);
+  color:#100b20;
+  border-color:var(--accent);
+}
+.btn:hover { filter:brightness(1.12); }
+
+.hero {
+  padding:76px 0 55px;
+  text-align:center;
+}
+.eyebrow {
+  color:var(--cyan);
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+h1 {
+  font-size:clamp(38px,8vw,72px);
+  letter-spacing:-3px;
+  line-height:1.04;
+  margin:20px auto;
+}
+h1 span {
+  background:linear-gradient(100deg,var(--accent),var(--cyan));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero p {
+  max-width:600px;
+  margin:0 auto 25px;
+  color:var(--muted);
+  line-height:1.8;
+}
+.hero-actions {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.trust {
+  color:var(--muted);
+  font-size:12px;
+  margin-top:24px;
+}
+
+.section { padding:35px 0 65px; }
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:24px;
+}
+h2 {
+  margin:0 0 8px;
+  font-size:28px;
+  letter-spacing:-1px;
+}
+.sub {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7;
+}
+.controls {
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-bottom:22px;
+}
+.search {
+  flex:1;
+  min-width:180px;
+  background:var(--panel);
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:11px;
+  padding:13px;
+}
+.filter {
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--panel);
+  color:var(--muted);
+  padding:11px 13px;
+  cursor:pointer;
+}
+.filter.active {
+  color:var(--text);
+  border-color:var(--accent);
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:17px;
+}
+.product {
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:17px;
+  overflow:hidden;
+  transition:transform .2s,border-color .2s;
+}
+.product:hover {
+  transform:translateY(-3px);
+  border-color:#66618d;
+}
+.art {
+  min-height:145px;
+  display:grid;
+  place-items:center;
+  background:radial-gradient(ellipse at 50% 0%,#44336c,#171b2a 68%);
+  font-size:45px;
+}
+.product-body { padding:18px; }
+.tag {
+  display:inline-block;
+  font-size:11px;
+  color:var(--cyan);
+  border:1px solid #28515d;
+  border-radius:30px;
+  padding:5px 9px;
+  margin-bottom:12px;
+}
+.product h3 { margin:0 0 9px; font-size:18px; }
+.desc {
+  min-height:46px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+}
+.buyrow {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:18px;
+}
+.price { font-weight:800; font-size:18px; }
+.price small {
+  display:block;
+  font-size:10px;
+  color:var(--muted);
+  font-weight:400;
+  margin-top:4px;
+}
+.buyrow .btn { padding:10px 12px; font-size:12px; }
+
+.empty {
+  display:none;
+  color:var(--muted);
+  padding:30px 0;
+  text-align:center;
+}
+.info-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.info {
+  border:1px solid var(--line);
+  background:var(--panel);
+  border-radius:15px;
+  padding:20px;
+}
+.info .emoji { font-size:25px; }
+.info h3 { font-size:16px; }
+.info p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+.notice {
+  margin-top:20px;
+  border:1px solid #51452c;
+  background:#201b13;
+  color:#e9d9b1;
+  border-radius:12px;
+  padding:15px;
+  font-size:12px;
+  line-height:1.8;
+}
+.contact {
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+  background:linear-gradient(130deg,#171426,#101a24);
+}
+footer {
+  padding:25px 0;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+  line-height:2;
+}
+.wa-float {
+  position:fixed;
+  right:17px;
+  bottom:17px;
+  z-index:8;
+  background:#25d366;
+  color:#062d17;
+  border-radius:50px;
+  padding:14px 18px;
+  font-weight:bold;
+  box-shadow:0 5px 25px #0008;
+}
+
+@media(max-width:760px) {
+  .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; }
+  .product-body { padding:13px; }
+  .art { min-height:115px; }
+  .buyrow { align-items:flex-start; flex-direction:column; }
+  .buyrow .btn { width:100%; }
+  .desc { min-height:65px; }
+  .info-grid { grid-template-columns:1fr; }
+  .navlinks { gap:11px; font-size:12px; }
+  .logo { font-size:19px; }
+  .nav .btn { padding:9px; font-size:12px; }
+  .hero { padding:55px 0 38px; }
+}
+@media(max-width:380px) {
+  .grid { grid-template-columns:1fr; }
+  .navlinks { gap:8px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#">Nexa<span>Vault</span>.</a>
+    <nav class="navlinks">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="#products">Explore Store</a>
+  </div>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div class="eyebrow">Your Digital World Starts Here</div>
+  <h1>Unlock Your Next<br><span>Digital Advantage.</span></h1>
+  <p>
+    Discover useful digital resources, creative assets and digital services
+    in one simple place. Welcome to NexaVault.
+  </p>
+  <div class="hero-actions">
+    <a class="btn primary" href="#products">Explore Products ↗</a>
+    <a class="btn" href="#contact">Contact Us</a>
+  </div>
+  <div class="trust">Digital resources · Friendly support · Simple ordering</div>
+</section>
+
+<section class="section wrap" id="products">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">The Collection</div>
+      <h2>Explore Our Products</h2>
+      <div class="sub">Find the right digital resource for your next project.</div>
+    </div>
+    <div class="sub">Prices shown in LKR</div>
+  </div>
+
+  <div class="controls">
+    <input id="search" class="search" type="search" placeholder="Search products..." aria-label="Search products">
+    <button class="filter active" data-cat="All">All</button>
+    <button class="filter" data-cat="Design">Design</button>
+    <button class="filter" data-cat="Business">Business</button>
+    <button class="filter" data-cat="Services">Services</button>
+  </div>
+
+  <div class="grid" id="grid">
+    <article class="product" data-cat="Design" data-name="social media design kit">
+      <div class="art">✦</div>
+      <div class="product-body">
+        <span class="tag">DESIGN</span>
+        <h3>Social Media Design Kit</h3>
+        <p class="desc">Editable design resources for your social media content.</p>
+        <div class="buyrow">
+          <div class="price">Rs. 1,000<small>Example price</small></div>
+          <button class="btn primary order" data-product="Social Media Design Kit" data-price="1000">Order Now</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product" data-cat="Business" data-name="business ebook">
+      <div class="art">▤</div>
+      <div class="product-body">
+        <span class="tag">BUSINESS</span>
+        <h3>Digital Business eBook</h3>
+        <p class="desc">A digital guide for planning and organizing a small project.</p>
+        <div class="buyrow">
+          <div class="price">Rs. 750<small>Example price</small></div>
+          <button class="btn primary order" data-product="Digital Business eBook" data-price="750">Order Now</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product" data-cat="Design" data-name="creator template pack">
+      <div class="art">▧</div>
+      <div class="product-body">
+        <span class="tag">DESIGN</span>
+        <h3>Creator Template Pack</h3>
+        <p class="desc">Reusable templates for planning your content and posts.</p>
+        <div class="buyrow">
+          <div class="price">Rs. 1,250<small>Example price</small></div>
+          <button class="btn primary order" data-product="Creator Template Pack" data-price="1250">Order Now</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product" data-cat="Business" data-name="budget planner">
+      <div class="art">▦</div>
+      <div class="product-body">
+        <span class="tag">BUSINESS</span>
+        <h3>Digital Budget Planner</h3>
+        <p class="desc">A simple digital planner for tracking a personal project budget.</p>
+        <div class="buyrow">
+          <div class="price">Rs. 500<small>Example price</small></div>
+          <button class="btn primary order" data-product="Digital Budget Planner" data-price="500">Order Now</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product" data-cat="Services" data-name="design service">
+      <div class="art">✧</div>
+      <div class="product-body">
+        <span class="tag">SERVICES</span>
+        <h3>Custom Design Service</h3>
+        <p class="desc">Ask about a design made for your project and requirements.</p>
+        <div class="buyrow">
+          <div class="price">From Rs. 1,500<small>Example starting price</small></div>
+          <button class="btn primary order" data-product="Custom Design Service" data-price="1500">Enquire</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="product" data-cat="Services" data-name="website setup service">
+      <div class="art">⌘</div>
+      <div class="product-body">
+        <span class="tag">SERVICES</span>
+        <h3>Website Setup Service</h3>
+        <p class="desc">Discuss a basic website setup for your small business.</p>
+        <div class="buyrow">
+          <div class="price">From Rs. 2,500<small>Example starting price</small></div>
+          <button class="btn primary order" data-product="Website Setup Service" data-price="2500">Enquire</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="empty" id="empty">No products found. Try another search.</div>
+
+  <div class="notice">
+    <strong>Order and payment notice:</strong> These are example listings.
+    Contact us to confirm product availability, the final price and payment
+    instructions. This website does not process or verify payments yet.
+    No automatic download is enabled.
+  </div>
+</section>
+
+<section class="section wrap" id="about">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Why NexaVault</div>
+      <h2>Simple. Digital. Convenient.</h2>
+    </div>
+  </div>
+  <div class="info-grid">
+    <div class="info">
+      <div class="emoji">◈</div>
+      <h3>Digital Resources</h3>
+      <p>Explore digital products and services in one organized catalog.</p>
+    </div>
+    <div class="info">
+      <div class="emoji">↗</div>
+      <h3>Easy Enquiries</h3>
+      <p>Contact our store to ask questions before placing an order.</p>
+    </div>
+    <div class="info">
+      <div class="emoji">⌁</div>
+      <h3>Support</h3>
+      <p>Get product details and delivery information directly from us.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap" id="contact">
+  <div class="contact">
+    <div class="eyebrow">Need Help?</div>
+    <h2>Let's Talk Digital.</h2>
+    <p class="sub">Contact NexaVault for product questions, custom requests or order enquiries.</p>
+    <a class="btn primary" id="contactBtn" href="#contact">Chat on WhatsApp ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">Nexa<span>Vault</span>.</div>
+    © <span id="year"></span> NexaVault. All rights reserved.<br>
+    Secure payments and automatic delivery are not yet enabled.
+  </div>
+</footer>
+
+<a class="wa-float" id="floatWA" href="#contact" aria-label="WhatsApp contact">WhatsApp ↗</a>
+
+<script>
+// Replace with your WhatsApp number.
+// Sri Lankan format: 94 followed by your number without the first zero.
+const WHATSAPP_NUMBER = "947XXXXXXXX";
+
+function whatsappLink(message) {
+  if (!/^947\d{8}$/.test(WHATSAPP_NUMBER)) {
+    alert("Please add your correct WhatsApp number in the website code first.");
+    return null;
+  }
+  return "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
+}
+
+document.querySelectorAll(".order").forEach(button => {
+  button.addEventListener("click", () => {
+    const message = "Hello NexaVault! I am interested in: " +
+      button.dataset.product + ". Listed example price: Rs. " +
+      button.dataset.price +
+      ". Please confirm availability, final price and payment instructions.";
+    const link = whatsappLink(message);
+    if (link) window.open(link, "_blank", "noopener,noreferrer");
+  });
+});
+
+["contactBtn", "floatWA"].forEach(id => {
+  document.getElementById(id).addEventListener("click", event => {
+    const link = whatsappLink(
+      "Hello NexaVault! I would like to enquire about your digital products."
+    );
+    event.preventDefault();
+    if (link) window.open(link, "_blank", "noopener,noreferrer");
+  });
+});
+
+let activeCategory = "All";
+const searchInput = document.getElementById("search");
+
+function filterProducts() {
+  const term = searchInput.value.toLowerCase().trim();
+  let shown = 0;
+
+  document.querySelectorAll(".product").forEach(product => {
+    const matchesCategory = activeCategory === "All" ||
+      product.dataset.cat === activeCategory;
+    const matchesSearch = (product.dataset.name + " " +
+      product.innerText).toLowerCase().includes(term);
+
+    const visible = matchesCategory && matchesSearch;
+    product.style.display = visible ? "" : "none";
+    if (visible) shown++;
+  });
+
+  document.getElementById("empty").style.display =
+    shown ? "none" : "block";
+}
+
+searchInput.addEventListener("input", filterProducts);
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click", () => {
+    activeCategory = button.dataset.cat;
+    document.querySelectorAll(".filter").forEach(b =>
+      b.classList.remove("active")
+    );
+    button.classList.add("active");
+    filterProducts();
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
