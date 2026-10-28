@@ -1,125 +1,291 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090b12">
-<meta name="description" content="NexaVault — digital products, creative assets and services.">
+<meta name="description" content="NexaVault digital store. Explore digital subscriptions and contact us to order.">
 <title>NexaVault — Digital Store</title>
+
 <style>
-:root{--bg:#090b12;--panel:#111522;--panel2:#171c2d;--text:#f5f7ff;--muted:#a5aec4;--line:#272e42;--accent:#9b8cff;--accent2:#62e5cf;--danger:#ffb4b4}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#24214a 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{color:inherit}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}.wrap{width:min(1120px,92%);margin:auto}.topbar{position:sticky;top:0;z-index:5;background:#090b12ef;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:22px;font-weight:850;letter-spacing:-.8px;text-decoration:none}.brand span{color:var(--accent)}.navlinks{display:flex;gap:16px;align-items:center}.navlinks a{text-decoration:none;color:var(--muted);font-size:14px}.btn{border:1px solid var(--line);border-radius:12px;background:var(--panel2);color:var(--text);padding:11px 15px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-weight:700}.btn.primary{background:linear-gradient(120deg,#9b8cff,#6b8cff);border:0;color:#080914}.btn.whatsapp{background:#123c31;border-color:#236b55;color:#baffdf}.btn.small{padding:8px 11px;font-size:13px}.hero{padding:64px 0 38px;display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center}.eyebrow{color:var(--accent2);font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(38px,7vw,70px);line-height:1.02;letter-spacing:-2.5px;margin:14px 0}.hero h1 em{font-style:normal;color:var(--accent)}.hero p{color:var(--muted);max-width:590px;font-size:17px}.hero-card{padding:25px;border:1px solid #393452;border-radius:24px;background:linear-gradient(145deg,#1b1b31,#101522);box-shadow:0 20px 70px #0004}.vault-icon{height:100px;width:100px;border-radius:28px;background:linear-gradient(135deg,#a797ff,#5de5d1);display:grid;place-items:center;color:#0a0d17;font-size:46px;font-weight:900;margin-bottom:20px}.hero-card h2{margin:0 0 8px}.hero-card p{font-size:14px}.trust{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:var(--muted);font-size:12px}.section{padding:36px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:20px}.section h2{font-size:clamp(25px,4vw,36px);letter-spacing:-1px;margin:0}.sub{color:var(--muted);margin:6px 0 0}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}.field{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:11px;padding:11px 13px;min-width:0}.toolbar input{flex:1;min-width:180px}.toolbar select{max-width:100%}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.product{border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,#151a29,#0f121d);padding:18px;display:flex;flex-direction:column;min-height:270px}.product-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.emoji{height:46px;width:46px;border-radius:13px;background:#24233b;display:grid;place-items:center;font-size:23px}.tag{font-size:11px;color:var(--accent2);border:1px solid #2d655b;border-radius:999px;padding:4px 8px}.product h3{font-size:19px;margin:15px 0 5px}.product p{color:var(--muted);font-size:13px;margin:0 0 14px}.price{font-size:22px;font-weight:850;margin-top:auto;padding:8px 0 13px}.price small{font-size:12px;color:var(--muted);font-weight:500}.product-actions{display:flex;gap:8px;flex-wrap:wrap}.product-actions .btn{flex:1}.notice{border:1px solid #594c2b;background:#211d12;color:#f5df9c;border-radius:14px;padding:15px;font-size:13px}.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}.info{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:20px}.info h3{margin:0 0 7px}.info p,.info li{color:var(--muted);font-size:14px}.info ul{padding-left:20px}.contact{display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(120deg,#1b1c37,#10231f);border:1px solid #343b52;border-radius:22px;padding:24px}.contact h2{margin:0}.contact p{margin:5px 0;color:var(--muted)}footer{margin-top:38px;border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.float-wa{position:fixed;right:16px;bottom:16px;z-index:4;border-radius:999px;box-shadow:0 8px 28px #0008}.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px;border:1px dashed var(--line);border-radius:15px}.small-note{font-size:12px;color:var(--muted)}
-@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:42px}.hero-card{display:none}.navlinks{gap:10px}.navlinks a:nth-child(2){display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head{align-items:start;flex-direction:column}.contact{align-items:start;flex-direction:column}}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.navlinks a{font-size:12px}.brand{font-size:20px}.hero h1{letter-spacing:-1.6px}.product{min-height:0}.two{grid-template-columns:1fr}}
+:root{
+--bg:#090b12;--panel:#111522;--panel2:#171c2d;
+--text:#f5f7ff;--muted:#a5aec4;--line:#272e42;
+--accent:#9b8cff;--accent2:#62e5cf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;background:radial-gradient(ellipse at 80% -10%,#24214a 0,transparent 38%),var(--bg);
+color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
+}
+a{color:inherit}
+button,input,select{font:inherit}
+.wrap{width:min(1120px,92%);margin:auto}
+.topbar{position:sticky;top:0;z-index:5;background:#090b12ef;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-size:22px;font-weight:850;letter-spacing:-.8px;text-decoration:none}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:16px;align-items:center}
+.navlinks a{text-decoration:none;color:var(--muted);font-size:14px}
+.btn{border:1px solid var(--line);border-radius:12px;background:var(--panel2);color:var(--text);padding:11px 15px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;font-weight:700}
+.btn.primary{background:linear-gradient(120deg,#9b8cff,#6b8cff);border:0;color:#080914}
+.btn.whatsapp{background:#123c31;border-color:#236b55;color:#baffdf}
+.btn.small{padding:8px 11px;font-size:13px}
+.hero{padding:64px 0 38px;display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center}
+.eyebrow{color:var(--accent2);font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,7vw,70px);line-height:1.02;letter-spacing:-2.5px;margin:14px 0}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);max-width:590px;font-size:17px}
+.hero-card{padding:25px;border:1px solid #393452;border-radius:24px;background:linear-gradient(145deg,#1b1b31,#101522);box-shadow:0 20px 70px #0004}
+.vault-icon{height:100px;width:100px;border-radius:28px;background:linear-gradient(135deg,#a797ff,#5de5d1);display:grid;place-items:center;color:#0a0d17;font-size:46px;font-weight:900;margin-bottom:20px}
+.hero-card h2{margin:0 0 8px}
+.hero-card p{font-size:14px}
+.trust{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:var(--muted);font-size:12px}
+.section{padding:36px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:20px}
+.section h2{font-size:clamp(25px,4vw,36px);letter-spacing:-1px;margin:0}
+.sub{color:var(--muted);margin:6px 0 0}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.field{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:11px;padding:11px 13px;min-width:0}
+.toolbar input{flex:1;min-width:180px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.product{border:1px solid var(--line);border-radius:18px;background:linear-gradient(160deg,#151a29,#0f121d);padding:20px;display:flex;flex-direction:column;min-height:270px}
+.product-top{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.emoji{height:50px;width:50px;border-radius:14px;background:#24233b;display:grid;place-items:center;font-size:25px}
+.tag{font-size:11px;color:var(--accent2);border:1px solid #2d655b;border-radius:999px;padding:4px 8px}
+.product h3{font-size:21px;margin:15px 0 5px}
+.product p{color:var(--muted);font-size:14px;margin:0 0 14px}
+.price{font-size:25px;font-weight:850;margin-top:auto;padding:10px 0 15px}
+.price small{font-size:12px;color:var(--muted);font-weight:500}
+.product-actions{display:flex;gap:8px}
+.product-actions .btn{flex:1}
+.notice{border:1px solid #594c2b;background:#211d12;color:#f5df9c;border-radius:14px;padding:15px;font-size:13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.info{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:20px}
+.info h3{margin:0 0 7px}
+.info p{color:var(--muted);font-size:14px}
+.contact{display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(120deg,#1b1c37,#10231f);border:1px solid #343b52;border-radius:22px;padding:24px}
+.contact h2{margin:0}
+.contact p{margin:5px 0;color:var(--muted)}
+footer{margin-top:38px;border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.float-wa{position:fixed;right:16px;bottom:16px;z-index:4;border-radius:999px;box-shadow:0 8px 28px #0008}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px;border:1px dashed var(--line);border-radius:15px}
+.small-note{font-size:12px;color:var(--muted)}
+@media(max-width:760px){
+.hero{grid-template-columns:1fr;padding-top:42px}
+.hero-card{display:none}
+.navlinks{gap:10px}
+.navlinks a:nth-child(2){display:none}
+.section-head{align-items:start;flex-direction:column}
+.contact{align-items:start;flex-direction:column}
+}
+@media(max-width:480px){
+.grid{grid-template-columns:1fr}
+.navlinks a{font-size:12px}
+.brand{font-size:20px}
+.hero h1{letter-spacing:-1.6px}
+.product{min-height:0}
+.two{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
-<header class="topbar"><div class="wrap nav">
+<header class="topbar">
+<div class="wrap nav">
 <a class="brand" href="#">Nexa<span>Vault</span></a>
-<nav class="navlinks"><a href="#products">Products</a><a href="#delivery">How it works</a><a href="#contact">Contact</a><a class="btn small" href="#products">Explore store ↗</a></nav>
-</div></header>
+<nav class="navlinks">
+<a href="#products">Products</a>
+<a href="#delivery">How it works</a>
+<a href="#contact">Contact</a>
+<a class="btn small" href="#products">Explore store ↗</a>
+</nav>
+</div>
+</header>
 
 <main>
 <section class="wrap hero">
 <div>
 <div class="eyebrow">Your digital corner</div>
 <h1>Unlock your next<br><em>digital advantage.</em></h1>
-<p>Discover useful digital products, creative resources, software-related services and custom design help — all in one simple store.</p>
-<div class="trust"><span class="pill">✦ Digital products</span><span class="pill">↗ Worldwide enquiries</span><span class="pill">✓ Direct support</span></div>
+<p>Explore digital subscription enquiries and discover products available through NexaVault. Contact us to confirm availability and ordering details.</p>
+<div class="trust">
+<span class="pill">✦ Digital products</span>
+<span class="pill">↗ Direct enquiries</span>
+<span class="pill">✓ Customer support</span>
+</div>
 <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
 <a class="btn primary" href="#products">Browse products</a>
 <a class="btn whatsapp" href="https://wa.me/94766905111?text=Hi%20NexaVault%2C%20I%20have%20a%20question." target="_blank" rel="noopener">WhatsApp us</a>
 </div>
 </div>
-<aside class="hero-card"><div class="vault-icon">N</div><h2>Welcome to NexaVault</h2><p>A clean, simple place to explore digital downloads and request creative services.</p><div class="trust"><span class="pill">Easy ordering</span><span class="pill">Human support</span><span class="pill">Clear delivery</span></div></aside>
+<aside class="hero-card">
+<div class="vault-icon">N</div>
+<h2>Welcome to NexaVault</h2>
+<p>A simple place to explore our digital product catalogue and contact our team.</p>
+<div class="trust">
+<span class="pill">Easy enquiries</span>
+<span class="pill">Direct support</span>
+<span class="pill">Clear pricing</span>
+</div>
+</aside>
 </section>
 
 <section class="wrap section" id="products">
-<div class="section-head"><div><div class="eyebrow">The collection</div><h2>Explore the catalog</h2><p class="sub">Choose a category, compare prices and message us to order.</p></div><select id="currency" class="field" aria-label="Currency"><option value="LKR">Prices: LKR (Rs.)</option><option value="USD">Prices: USD ($)</option></select></div>
+<div class="section-head">
+<div>
+<div class="eyebrow">The collection</div>
+<h2>Explore the catalog</h2>
+<p class="sub">Search products, choose a currency and contact us to enquire.</p>
+</div>
+<select id="currency" class="field" aria-label="Currency">
+<option value="LKR">Prices: LKR (Rs.)</option>
+<option value="USD">Prices: USD ($)</option>
+</select>
+</div>
+
 <div class="toolbar">
 <input id="search" class="field" type="search" placeholder="Search products…" aria-label="Search products">
 <select id="category" class="field" aria-label="Category">
-<option value="All">All categories</option><option>eBooks</option><option>Design</option><option>Services</option><option>Software</option>
+<option value="All">All categories</option>
+<option value="Software">Software</option>
 </select>
 </div>
+
 <div id="catalog" class="grid" aria-live="polite"></div>
-<p class="small-note">Prices are listed for reference. Confirm final price, availability and any subscription terms with NexaVault before ordering.</p>
+<p class="small-note">Confirm availability, subscription terms and the final price with NexaVault before ordering. Product names belong to their respective owners.</p>
 </section>
 
 <section class="wrap section" id="delivery">
-<div class="section-head"><div><div class="eyebrow">Simple process</div><h2>How ordering works</h2><p class="sub">No fake checkout or pretend payment confirmations.</p></div></div>
-<div class="two">
-<div class="info"><h3>01 · Choose a product</h3><p>Browse the catalog and select the item or service you want.</p></div>
-<div class="info"><h3>02 · Message us</h3><p>The WhatsApp button prepares an enquiry with the product name and displayed price.</p></div>
-<div class="info"><h3>03 · Confirm payment details</h3><p>Ask us for current bank-transfer details or available online payment options. Verify the details before paying.</p></div>
-<div class="info"><h3>04 · Delivery</h3><p>After payment is independently verified, delivery can be arranged manually. This website does not automatically verify payments or deliver files.</p></div>
+<div class="section-head">
+<div>
+<div class="eyebrow">Simple process</div>
+<h2>How ordering works</h2>
+<p class="sub">Contact us first to confirm the details of your order.</p>
 </div>
-<div class="notice" style="margin-top:16px"><strong>Payment status:</strong> This website is a catalog only. It does not accept or verify payments, does not store card/bank details, and does not provide automatic delivery yet. No demo transaction is represented as real.</div>
+</div>
+<div class="two">
+<div class="info">
+<h3>01 · Choose a product</h3>
+<p>Browse the catalogue and select the product you are interested in.</p>
+</div>
+<div class="info">
+<h3>02 · Message us</h3>
+<p>Use the WhatsApp button to send an enquiry with the product name and listed price.</p>
+</div>
+<div class="info">
+<h3>03 · Confirm details</h3>
+<p>Confirm availability, final price, subscription terms and payment instructions before paying.</p>
+</div>
+<div class="info">
+<h3>04 · Delivery</h3>
+<p>Delivery or access arrangements are confirmed manually after the order has been checked.</p>
+</div>
+</div>
+<div class="notice" style="margin-top:16px">
+<strong>Payment status:</strong> This website is a catalogue only. It does not accept or verify payments, store card or bank details, or automatically deliver products.
+</div>
 </section>
 
 <section class="wrap section" id="contact">
-<div class="contact"><div><div class="eyebrow">Need help?</div><h2>Talk to NexaVault</h2><p>Ask about product availability, custom work or delivery.</p></div><a class="btn whatsapp" href="https://wa.me/94766905111?text=Hi%20NexaVault%2C%20I%20need%20help%20with%20an%20order." target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div>
+<div class="contact">
+<div>
+<div class="eyebrow">Need help?</div>
+<h2>Talk to NexaVault</h2>
+<p>Ask about product availability, pricing or ordering.</p>
+</div>
+<a class="btn whatsapp" href="https://wa.me/94766905111?text=Hi%20NexaVault%2C%20I%20need%20help%20with%20an%20order." target="_blank" rel="noopener">Chat on WhatsApp ↗</a>
+</div>
 </section>
 </main>
 
-<footer><div class="wrap footer-inner"><span>© <span id="year"></span> NexaVault. All rights reserved.</span><span>Digital goods · Creative services · Direct support</span></div></footer>
+<footer>
+<div class="wrap footer-inner">
+<span>© <span id="year"></span> NexaVault. All rights reserved.</span>
+<span>Digital products · Direct support</span>
+</div>
+</footer>
+
 <a class="btn whatsapp float-wa" href="https://wa.me/94766905111?text=Hi%20NexaVault%2C%20I%20have%20a%20question." target="_blank" rel="noopener" aria-label="Contact NexaVault on WhatsApp">WhatsApp ↗</a>
 
 <script>
 const PRODUCTS = [
-{id:1,name:"Starter eBook Bundle",category:"eBooks",icon:"📚",tag:"Digital download",lkr:1200,usd:4.99,description:"A starter bundle of practical digital reading resources. Ask for the current contents before ordering."},
-{id:2,name:"Creator Guide eBook",category:"eBooks",icon:"📘",tag:"Digital download",lkr:750,usd:2.99,description:"A concise guide-style digital product for creators and learners. Final file format confirmed by message."},
-{id:3,name:"Social Media Design Pack",category:"Design",icon:"🎨",tag:"Creative assets",lkr:1800,usd:6.99,description:"A design resource pack for social posts and online branding. Preview and license details available on request."},
-{id:4,name:"Custom Logo Design",category:"Design",icon:"✦",tag:"Made to order",lkr:3500,usd:12.99,description:"A custom logo design request. Scope, revisions and delivery time are agreed before work begins."},
-{id:5,name:"Thumbnail Design Service",category:"Services",icon:"🖼️",tag:"Custom service",lkr:1500,usd:5.99,description:"A thumbnail design service for video creators. Share your brief and reference style by WhatsApp."},
-{id:6,name:"Store Setup Consultation",category:"Services",icon:"🛠️",tag:"Consultation",lkr:2500,usd:9.99,description:"A basic consultation request for setting up a small digital storefront. Confirm scope before payment."},
-{id:7,name:"Software Setup Help",category:"Software",icon:"💻",tag:"Support service",lkr:2000,usd:7.99,description:"Guidance for legitimate software installation and setup. No pirated software or unauthorized license keys."},
-{id:8,name:"Productivity Template Pack",category:"Software",icon:"📂",tag:"Digital resource",lkr:1000,usd:3.99,description:"A pack of productivity templates and digital resources. Ask which formats are currently available."},
-{id:9,name:"Netflix Pro",category:"Software",icon:"🎬",tag:"Subscription enquiry",lkr:699,usd:2.49,description:"Netflix subscription enquiry. Confirm availability, plan details and authorized access before ordering."},
-{id:10,name:"CapCut Pro",category:"Software",icon:"🎞️",tag:"Subscription enquiry",lkr:1400,usd:4.99,description:"CapCut Pro subscription enquiry. Confirm availability, plan details and authorized access before ordering."}
+{
+id:1,
+name:"Netflix Pro",
+category:"Software",
+icon:"🎬",
+tag:"Subscription enquiry",
+lkr:699,
+usd:2.49,
+description:"Netflix subscription enquiry. Contact us to confirm availability, plan details and authorized access."
+},
+{
+id:2,
+name:"CapCut Pro",
+category:"Software",
+icon:"🎞️",
+tag:"Subscription enquiry",
+lkr:1400,
+usd:4.99,
+description:"CapCut Pro subscription enquiry. Contact us to confirm availability, plan details and authorized access."
+}
 ];
 
-const waNumber="94766905111";
-const catalog=document.getElementById("catalog");
-const search=document.getElementById("search");
-const category=document.getElementById("category");
-const currency=document.getElementById("currency");
+const waNumber = "94766905111";
+const catalog = document.getElementById("catalog");
+const search = document.getElementById("search");
+const category = document.getElementById("category");
+const currency = document.getElementById("currency");
 
-function money(p){
-return currency.value==="LKR"
-?"Rs. "+p.lkr.toLocaleString("en-LK")
-:"$"+p.usd.toFixed(2);
+function money(product){
+if(currency.value === "LKR"){
+return "Rs. " + product.lkr.toLocaleString("en-LK");
+}
+return "$" + product.usd.toFixed(2);
 }
 
 function render(){
-const q=search.value.trim().toLowerCase();
-const c=category.value;
-const list=PRODUCTS.filter(p=>
-(c==="All"||p.category===c)&&
-(p.name+" "+p.description+" "+p.category).toLowerCase().includes(q)
+const q = search.value.trim().toLowerCase();
+const c = category.value;
+
+const list = PRODUCTS.filter(product =>
+(c === "All" || product.category === c) &&
+(product.name + " " + product.description + " " + product.category)
+.toLowerCase().includes(q)
 );
 
-catalog.innerHTML=list.length?list.map(p=>`
+catalog.innerHTML = list.length ? list.map(product => `
 <article class="product">
 <div class="product-top">
-<div class="emoji">${p.icon}</div>
-<span class="tag">${p.tag}</span>
+<div class="emoji">${product.icon}</div>
+<span class="tag">${product.tag}</span>
 </div>
-<h3>${p.name}</h3>
-<p>${p.description}</p>
-<div class="price">${money(p)} <small>/ listed price</small></div>
+<h3>${product.name}</h3>
+<p>${product.description}</p>
+<div class="price">${money(product)} <small>/ listed price</small></div>
 <div class="product-actions">
-<a class="btn whatsapp small" href="https://wa.me/${waNumber}?text=${encodeURIComponent("Hi NexaVault! I'm interested in: "+p.name+" ("+p.category+"). Listed price: "+money(p)+". Please confirm availability, final price and delivery details.")}" target="_blank" rel="noopener">Enquire on WhatsApp ↗</a>
+<a class="btn whatsapp small"
+href="https://wa.me/${waNumber}?text=${encodeURIComponent(
+"Hi NexaVault! I'm interested in: " + product.name +
+". Listed price: " + money(product) +
+". Please confirm availability, final price and delivery details."
+)}"
+target="_blank" rel="noopener">Enquire on WhatsApp ↗</a>
 </div>
-</article>`).join("")
-:'<div class="empty">No products found. Try another search or category.</div>';
+</article>
+`).join("") : '<div class="empty">No products found. Try another search.</div>';
 }
 
-search.addEventListener("input",render);
-category.addEventListener("change",render);
-currency.addEventListener("change",render);
-document.getElementById("year").textContent=new Date().getFullYear();
+search.addEventListener("input", render);
+category.addEventListener("change", render);
+currency.addEventListener("change", render);
+document.getElementById("year").textContent = new Date().getFullYear();
 render();
 </script>
 </body>
-  </html>
+</html>
